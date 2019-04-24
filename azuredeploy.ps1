@@ -6,6 +6,9 @@
 param(
   [string] $authenticationType = "",
   [string] $adminPasswordOrKey = "",
+  [string] $virtualNetworkName = "",
+  [string] $subnetName = "",
+  [string] $privateIPAddress = "",
   [Parameter(mandatory=$true)] [string] $resourceGroupName,
   [Parameter(mandatory=$true)] [string] $region = "",
   [string] $templateFilePath = "azuredeploy.json",
@@ -33,6 +36,9 @@ $deployment = New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGro
                                                  -TemplateFile $templateFilePath `
                                                  -TemplateParameterFile $parametersFilePath `
                                                  -adminPasswordOrKey $adminPasswordOrKeySecure `
+                                                 -virtualNetworkName $virtualNetworkName `
+                                                 -subnetName $subnetName `
+                                                 -privateIPAddress $privateIPAddress `
                                                  -Verbose `
                                                  -Force
 
