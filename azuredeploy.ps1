@@ -6,7 +6,7 @@
 param(
   [string] $authenticationType = "",
   [string] $adminPasswordOrKey = "",
-  [Parameter(mandatory=$true)] [string] $resourceGroupName = "",
+  [Parameter(mandatory=$true)] [string] $resourceGroupName,
   [Parameter(mandatory=$true)] [string] $region = "",
   [string] $templateFilePath = "azuredeploy.json",
   [string] $parametersFilePath = "azuredeploy.parameters.json"
@@ -29,8 +29,7 @@ New-AzureRmResourceGroup -Name $resourceGroupName -Location "$region"  -Verbose 
 $adminPasswordOrKeySecure = ConvertTo-SecureString -String $adminPasswordOrKey -AsPlainText -Force
 
 # Create Arm Deployment
-$deployment = New-AzureRmResourceGroupDeployment -Name $resourceGroupName 
-                                                 -ResourceGroupName $resourceGroupName `
+$deployment = New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName `
                                                  -TemplateFile $templateFilePath `
                                                  -TemplateParameterFile $parametersFilePath `
                                                  -adminPasswordOrKey $adminPasswordOrKeySecure `
