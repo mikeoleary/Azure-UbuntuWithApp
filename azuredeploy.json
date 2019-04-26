@@ -10,9 +10,8 @@
     },
     "authenticationType": {
       "type": "string",
-      "defaultValue": "sshPublicKey",
+      "defaultValue": "password",
       "allowedValues": [
-        "sshPublicKey",
         "password"
       ],
       "metadata": {
@@ -22,13 +21,13 @@
     "adminPasswordOrKey": {
       "type": "securestring",
       "metadata": {
-        "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
+        "description": "SSH Key or password for the Virtual Machine. "
       }
     },
     "dnsLabelPrefix": {
       "type": "string",
       "metadata": {
-        "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+        "description": "Unique DNS Name for the Public IP used to access the Virtual Machine. Can include numbers and lower case letters."
       }
     },
     "ubuntuOSVersion": {
