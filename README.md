@@ -2,6 +2,11 @@
 
 This is a very basic template which will deploy a Ubuntu VM from marketplace into a pre-existing VNET and specified subnet.
 
+# Requirements
+- Existing Vnet
+- Existing subnet
+- knowledge of free IP address in existing subnet
+
 # Deploy button
 
 Use the button below to deploy via GUI:
